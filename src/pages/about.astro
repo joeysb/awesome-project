@@ -12,6 +12,10 @@ const skills = ["SEO", "Web marketing", "CRO", "Technical SEO", "Web devevelopme
 const happy = true;
 const finished = false;
 const goal = 15;
+
+const skillColour = "pink";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 <html lang="en">
   <head>
@@ -19,7 +23,7 @@ const goal = 15;
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
   </head>
-  <style>
+  <style define:vars={{skillColour, fontWeight, textCase}}>
     h1 {
       color: purple;
       font-size: 4rem;
@@ -30,7 +34,13 @@ const goal = 15;
       padding: 20px;
       background-color: #f4f4f4;
     }
-    
+    .skill {
+      color: green;
+      font-weight: bold;  
+      color: var(--skillColour);
+      text-transform: var(--textCase);
+      font-weight: var(--fontWeight);
+    }
   </style>
   <body>
     <a href="/">Home</a>
@@ -53,7 +63,7 @@ const goal = 15;
 </ul>
 <p>My skills are:</p>
 <ul>
-  {skills.map((skill) => <li>{skill}</li>)}
+  {skills.map((skill) => <li class="skill">{skill}</li>)}
 </ul>
 
 {happy && <p>I am happy to be learning Astro</p>}
